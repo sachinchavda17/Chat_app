@@ -8,7 +8,7 @@ import userRoutes from "./routes/user.js"
 import connectToMongoDb from "./db/ConnectToMongoDb.js";
 import { app, server } from "./socket/socket.js";
 
-const __dirname = path.resolve();
+const newDirname = path.resolve();
 
 dotenv.config();
 
@@ -21,9 +21,9 @@ app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 app.use("/api/users",userRoutes);
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")))
+app.use(express.static(path.join(newDirname, "/frontend/dist")))
 
-app.get("*",(req,res)=>path.join(__dirname,"frontend","dist","index.html") )
+app.get("*",(req,res)=>path.join(newDirname,"frontend","dist","index.html") )
 
 // app.listen(port, () => {
 //     connectToMongoDb();
