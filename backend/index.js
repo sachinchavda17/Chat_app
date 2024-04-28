@@ -43,12 +43,7 @@ app.get("*", (req, res) => path.join(newDirname, "frontend", "dist", "index.html
 //     console.log(`Server is running on port ${port}`)
 // })
 
-// try {
-//      mongoose.connect(process.env.MONGODB_URI)
-//     console.log("Conected to MongoDB")
-// } catch (error) {
-//     console.log("Error Connecting to mongoDB " + error.message)
-// }
+
 
 server.listen(port,  () => {
     // connectToMongoDb();
