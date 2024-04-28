@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
-
+import path from "path"
 import authRoutes from  './routes/auth.js';
 import messageRoutes from  './routes/messages.js';
 import userRoutes from "./routes/user.js"
 import connectToMongoDb from "./db/ConnectToMongoDb.js";
 import { app, server } from "./socket/socket.js";
+
+const __dirname = path.resolve();
 
 dotenv.config();
 
@@ -19,7 +21,9 @@ app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 app.use("/api/users",userRoutes);
 
+app.use(express.static(path.join(__dirname, "/frontend/dist")))
 
+app.get("*",(req,res)=>path.join(__dirname,"frontend","dist","index.html") )
 
 // app.listen(port, () => {
 //     connectToMongoDb();
