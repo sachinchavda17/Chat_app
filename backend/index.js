@@ -5,7 +5,7 @@ import path from "path"
 import authRoutes from './routes/auth.js';
 import messageRoutes from './routes/messages.js';
 import userRoutes from "./routes/user.js"
-import connectToMongoDb from "./db/ConnectToMongoDb.js";
+// import connectToMongoDb from "./db/ConnectToMongoDb.js";
 import { app, server } from "./socket/socket.js";
 import mongoose from "mongoose";
 
@@ -14,6 +14,18 @@ const newDirname = path.resolve();
 dotenv.config();
 
 const port = process.env.PORT || 5000;
+
+try {
+    mongoose
+      .connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+      .then(() => console.log("Connected to Mongo!"))
+      .catch((err) => console.log(`Error while connecting with mongo ${err}`));
+  } catch (err) {
+    console.log(`Error while connecting with mongo ${err}`);
+  }
 
 app.use(express.json())
 app.use(cookieParser())
