@@ -18,8 +18,8 @@ export const singupUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt)
 
         // profile pictures
-        const boyProfilePic = `https://avatar.iran.liara.run/boy?username=${username}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/girl?username=${username}`;
+        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
         const newUser = new User({
             fullName,
@@ -78,8 +78,8 @@ export const loginUser = async (req, res) => {
 }
 export const logoutUser = async (req, res) => {
     try {
-        res.cookie("jwt","",{maxAge:0});
-        res.status(200).json({message:"Logged out Successfully"})
+        res.cookie("jwt", "", { maxAge: 0 });
+        res.status(200).json({ message: "Logged out Successfully" })
     } catch (error) {
         console.log("Error in login " + error.message);
         res.status(500).json({ error: "Internal Server Error " });

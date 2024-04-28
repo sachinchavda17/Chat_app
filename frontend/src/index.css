@@ -12,7 +12,7 @@ body {
 ::-webkit-scrollbar {
 	cursor: pointer;
 	width: 8px;
-
+	height: 8px;
 }
 
 ::-webkit-scrollbar-track {

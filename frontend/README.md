@@ -7,6 +7,8 @@ Currently, two official plugins are available:
 refrences :
 https://tailwindcss-glassmorphism.vercel.app
 https://daisyui.com
+https://zustand-demo.pmnd.rs/
+https://avatar-placeholder.iran.liara.run/
 
 
 
