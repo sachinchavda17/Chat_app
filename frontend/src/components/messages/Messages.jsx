@@ -4,10 +4,11 @@ import useConversation from "../../zustand/useConversation";
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeletons from "../../skeletons/MessageSkeletons";
 import { Toaster } from "react-hot-toast";
+import useListenMessages from "../../hooks/useListenMessages";
 
 const Messages = () => {
   const { loading, messages } = useGetMessages();
-
+  useListenMessages()
   const lastMessageRef = useRef();
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +21,6 @@ const Messages = () => {
       {loading && [...Array(3)].map((_, idx) => <MessageSkeletons key={idx} />)}
       {!loading && messages.length === 0 && (
         <p className="text-center pt-3">
-          {" "}
           Send a Message to start the conversation
         </p>
       )}
