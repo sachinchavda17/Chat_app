@@ -3,7 +3,8 @@ import useLogout from "../../hooks/useLogout";
 const LogoutButton = () => {
   const { loading, logout } = useLogout();
   return (
-    <div className="mt-8">
+    // <div className="mt-8">
+    <div className="mt-auto">
       {!loading ? (
         <BiLogOut
           className="h-6 w-6 cursor-pointer text-white "
