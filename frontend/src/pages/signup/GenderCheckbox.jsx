@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import useColor from "../../hooks/useColor";
 
 const GenderCheckbox = ({ handleCheckboxChange, selectedGender }) => {
+  const {borderColor} = useColor();
   return (
     <div className="flex">
       <div className="form-control">
@@ -12,7 +14,7 @@ const GenderCheckbox = ({ handleCheckboxChange, selectedGender }) => {
           <span className="label-text">Male</span>
           <input
             type="checkbox"
-            className="checkbox checkbox-success border-slate-900"
+            className={`checkbox checkbox-success ${borderColor}`}
             checked={selectedGender === "male"}
             onChange={() => handleCheckboxChange("male")}
           />
@@ -27,7 +29,7 @@ const GenderCheckbox = ({ handleCheckboxChange, selectedGender }) => {
           <span className="label-text">Female</span>
           <input
             type="checkbox"
-            className="checkbox checkbox-success border-slate-900"
+            className={`checkbox checkbox-success ${borderColor}`}
             checked={selectedGender === "female"}
             onChange={() => handleCheckboxChange("female")}
           />

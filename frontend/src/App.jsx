@@ -6,11 +6,13 @@ import Home from "./pages/home/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./contexts/AuthContext";
+import useColor from "./hooks/useColor";
 
 function App() {
   const { authUser } = useAuthContext();
+  const {bgColor} = useColor()
   return (
-    <div className="p-4 h-screen w-screen flex justify-center  items-center">
+    <div className={`p-2 h-screen w-screen flex justify-center  items-center ${bgColor}`}>
       <Toaster />
       <Routes>
         <Route

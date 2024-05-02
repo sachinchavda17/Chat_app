@@ -1,16 +1,20 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar";
 import MessageContainer from "../../components/messages/MessageContainer";
+import useColor from "../../hooks/useColor";
+import Sidebar from "../../components/sidebar/Sidebar";
 import MobileSidebar from "../../components/sidebar/MobileSidebar";
 
 const Home = () => {
+  const { bgColor } = useColor();
   return (
-    <div className="flex w-full  sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+    <div
+      className={`flex w-full  sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden shadow-md ${bgColor} bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0`}
+    >
       {/* <div className="sm:block hidden"> */}
-        <Sidebar />
+      <Sidebar />
       {/* </div> */}
       {/* <div className="sm:hidden h-[450px] ">
-        <MobileSidebar />
+        <MobileSidebar/>
       </div> */}
       <MessageContainer />
     </div>

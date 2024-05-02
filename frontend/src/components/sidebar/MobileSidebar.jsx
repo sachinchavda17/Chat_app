@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "./Sidebar";
 import { GiHamburgerMenu } from "react-icons/gi";
 const MobileSidebar = () => {
   return (

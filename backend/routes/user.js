@@ -5,7 +5,7 @@ import { getUserForSearch, getUserForSidebar } from "../controllers/user.js";
 const router = express.Router();
 
 router.get("/", protectedRoute, getUserForSidebar)
-router.get("/search/:searchTerm", protectedRoute, getUserForSearch)
+// router.get("/search/:searchTerm", protectedRoute, getUserForSearch)
 
 
 export default router;

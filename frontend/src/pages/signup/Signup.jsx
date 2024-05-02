@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GenderCheckbox from "./GenderCheckbox";
 import { Link } from "react-router-dom";
 import useSignup from "../../hooks/useSignup";
+import useColor from "../../hooks/useColor";
 
 const Signup = () => {
   const [inputs, setInputs] = useState({
@@ -13,6 +14,14 @@ const Signup = () => {
   });
 
   const { loading, signup } = useSignup();
+  const {
+    textColor,
+    bgColor,
+    mainBgColor,
+    mainTextColor,
+    mainTextColorHover,
+    mainBgColorHover,
+  } = useColor();
 
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
@@ -24,21 +33,25 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-w-96  mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl text-gray-300 text-center font-semibold">
+    <div className="flex flex-col justify-center items-center min-w-96  mx-auto border rounded-lg border-gray-400 shadow-xl">
+      <div
+        className={`w-full p-6 rounded-lg shadow-md ${bgColor} bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 `}
+      >
+        <h1 className={`text-3xl ${textColor} text-center font-semibold`}>
           Signup
-          <span className="text-blue-500"> ChatApp</span>
+          <span className={`${mainTextColor} ${mainTextColorHover}`}>
+            {" "} ChatApp
+          </span>
         </h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="fullname" className="label p-2">
+            <label htmlFor="fullname" className={`label p-2 ${textColor} `}>
               Full Name
             </label>
             <input
               type="text"
               placeholder="John Doe "
-              className="w-full input input-bordered h-10 "
+              className={`w-full input input-bordered h-10 ${textColor} `}
               value={inputs.fullName}
               onChange={(e) =>
                 setInputs({ ...inputs, fullName: e.target.value })
@@ -46,13 +59,13 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="username" className="label p-2">
+            <label htmlFor="username" className={`label p-2 ${textColor} `}>
               Username
             </label>
             <input
               type="text"
               placeholder="johndoe"
-              className="w-full input input-bordered h-10 "
+              className={`w-full input input-bordered h-10 ${textColor} `}
               value={inputs.username}
               onChange={(e) =>
                 setInputs({ ...inputs, username: e.target.value })
@@ -60,13 +73,13 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="label p-2">
+            <label htmlFor="password" className={`label p-2 ${textColor} `}>
               Password
             </label>
             <input
               type="password"
               placeholder="Enter Password "
-              className="w-full input input-bordered h-10 "
+              className={`w-full input input-bordered h-10 ${textColor} `}
               value={inputs.password}
               onChange={(e) =>
                 setInputs({ ...inputs, password: e.target.value })
@@ -74,13 +87,16 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="confirmpassword" className="label p-2">
+            <label
+              htmlFor="confirmpassword"
+              className={`label p-2 ${textColor} `}
+            >
               Confirm Password
             </label>
             <input
               type="password"
               placeholder="Enter Password "
-              className="w-full input input-bordered h-10 "
+              className={`w-full input input-bordered h-10 ${textColor} `}
               value={inputs.confirmPassword}
               onChange={(e) =>
                 setInputs({ ...inputs, confirmPassword: e.target.value })
@@ -92,7 +108,10 @@ const Signup = () => {
             selectedGender={inputs.gender}
           />
           <div>
-            <button className="btn btn-block btn-sm mt-6" disabled={loading}>
+            <button
+              className={`btn btn-block btn-sm mt-6 ${mainBgColor} ${mainBgColorHover} ${textColor}`}
+              disabled={loading}
+            >
               {loading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
@@ -106,7 +125,9 @@ const Signup = () => {
             className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
           >
             Already have an account?
-            <span className="text-blue-500"> Login</span>
+            <span className={`${mainTextColor} ${mainTextColorHover}`}>
+             {" "} Login
+            </span>
           </Link>
         </form>
       </div>

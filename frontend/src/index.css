@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
 	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/bg.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-}
+} */
 
 ::-webkit-scrollbar {
 	cursor: pointer;
@@ -39,6 +39,7 @@ body {
 }
 
 @keyframes shake {
+
 	10%,
 	90% {
 		transform: translate3d(-1px, 0, 0);
