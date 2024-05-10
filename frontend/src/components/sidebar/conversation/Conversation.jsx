@@ -4,7 +4,7 @@ import useConversation from "../../../zustand/useConversation";
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  const { bgColor, bgColorHover, textColor, dividerColor } = useColor()
+  const { bgColor, dropdownBgColor, textColor, dividerColor } = useColor()
 
   const isSelected = selectedConversation?._id === conversation._id;
   const { onlineUsers } = useSocketContext();
@@ -15,7 +15,7 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
       <div
         className={`flex gap-2 items-center ${
           isSelected ? " bg-sky-500 " : ""
-        }  hover:bg-sky-500 rounded p-2 py-1 cursor-pointer`}
+        }  hover:bg-sky-500 ${dropdownBgColor} rounded p-2 py-1 cursor-pointer`}
         onClick={() => setSelectedConversation(conversation)}
       >
         <div className={`avatar ${isOnline ? "online" : ""}`}>

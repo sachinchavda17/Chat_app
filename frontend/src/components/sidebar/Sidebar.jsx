@@ -10,7 +10,7 @@ const Sidebar = () => {
   const { textColor ,bgColor,dividerColor} = useColor()
 
   return (
-    <div className={`${bgColor} border-r border-slate-500 px-4 py-2  flex flex-col`}>
+    <div className={`${bgColor} sm:border-r border-slate-500 px-4 py-2  flex flex-col justify-between h-full`}>
       <Link to="/" className={`text-xl pb-3 ${textColor} cursor-pointer font-bold`}>
         Chat App
       </Link>

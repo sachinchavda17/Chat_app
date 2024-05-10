@@ -6,14 +6,14 @@ import useConversation from "../../zustand/useConversation";
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
   const { selectedConversation } = useConversation();
-  const { bgColor, bgColorHover, textColor, textColorHover } = useColor()
+  const { bgColor, bgColorHover, textColor, dropdownBgColor } = useColor()
 
   const fromMe = message.senderId === authUser._id;
   const chatClassName = fromMe ? "chat-end" : "chat-start";
   const profilePic = fromMe
     ? authUser.profilePic
     : selectedConversation.profilePic;
-  const bgBubbleColor = fromMe ? " bg-blue-500" : "";
+  const bgBubbleColor = fromMe ? " bg-blue-500" : dropdownBgColor;
   const formattedTime = extractTime(message.createdAt);
   const shakeClass = message.shouldShake ? "shake" : "";
   return (

@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import { GiHamburgerMenu } from "react-icons/gi";
 const MobileSidebar = () => {
   return (
-    <div>
+    <div className="">
       <div className="drawer  z-10">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
