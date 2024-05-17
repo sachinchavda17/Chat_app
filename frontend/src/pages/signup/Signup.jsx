@@ -21,6 +21,7 @@ const Signup = () => {
     mainTextColor,
     mainTextColorHover,
     mainBgColorHover,
+    inputBgColor,
   } = useColor();
 
   const handleCheckboxChange = (gender) => {
@@ -39,9 +40,9 @@ const Signup = () => {
       >
         <h1 className={`text-3xl ${textColor} text-center font-semibold`}>
           Signup
-          <span className={`${mainTextColor} ${mainTextColorHover}`}>
+          <Link className={`${mainTextColor} ${mainTextColorHover}`} to={"/"}>
             {" "} ChatApp
-          </span>
+          </Link>
         </h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -51,7 +52,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="John Doe "
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${textColor} ${inputBgColor} `}
               value={inputs.fullName}
               onChange={(e) =>
                 setInputs({ ...inputs, fullName: e.target.value })
@@ -65,7 +66,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="johndoe"
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${textColor} ${inputBgColor} `}
               value={inputs.username}
               onChange={(e) =>
                 setInputs({ ...inputs, username: e.target.value })
@@ -79,7 +80,7 @@ const Signup = () => {
             <input
               type="password"
               placeholder="Enter Password "
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${textColor} ${inputBgColor} `}
               value={inputs.password}
               onChange={(e) =>
                 setInputs({ ...inputs, password: e.target.value })
@@ -96,7 +97,7 @@ const Signup = () => {
             <input
               type="password"
               placeholder="Enter Password "
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${textColor} ${inputBgColor}`}
               value={inputs.confirmPassword}
               onChange={(e) =>
                 setInputs({ ...inputs, confirmPassword: e.target.value })

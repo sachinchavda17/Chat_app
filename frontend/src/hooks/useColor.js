@@ -1,8 +1,6 @@
-import useMode from "../zustand/useMode";
 
 const useColor = () => {
-
-  const { mode } = useMode()
+  const mode = localStorage.getItem("theme") || "dark";
 
   const textColor = mode === "dark" ? "text-gray-200" : "text-gray-900";
   const textColorHover =
@@ -21,7 +19,10 @@ const useColor = () => {
   const dividerColor = mode === "dark" ? "divider-neutral" : "divider "
   const dropdownBgColor = mode === "dark" ? "bg-gray-800" : "bg-gray-100";
   const dropdownBgColorHover = mode === "dark" ? "hover:bg-gray-700" : "hover:bg-gray-200";
-  return { textColor, textColorHover, bgColor, bgColorHover, bgSlateColorForHeader, fixedColorForHeader, borderColor, sendBtnBgColor, mainBgColor, mainTextColor, mainBgColorHover, mainTextColorHover, dividerColor, dropdownBgColor, dropdownBgColorHover }
+  const inputBgColor = mode === "dark" ? "bg-gray-900" : "bg-gray-200";
+
+
+  return { textColor, textColorHover, bgColor, bgColorHover, bgSlateColorForHeader, fixedColorForHeader, borderColor, sendBtnBgColor, mainBgColor, mainTextColor, mainBgColorHover, mainTextColorHover, dividerColor, dropdownBgColor, dropdownBgColorHover, inputBgColor }
 }
 
 export default useColor;

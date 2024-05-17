@@ -8,8 +8,8 @@ const LogoutButton = () => {
     // <div className="mt-8">
     <div className="mt-auto">
       {!loading ? (
-        <div className="flex items-center cursor-pointer">
-          <BiLogOut className={`h-6 w-6  ${textColor} `} onClick={logout} />
+        <div className="flex items-center cursor-pointer " onClick={logout}>
+          <BiLogOut className={`h-6 w-6  ${textColor} `}  />
           <span className={`ml-2 ${textColor}`}> Sign out</span>
         </div>
       ) : (

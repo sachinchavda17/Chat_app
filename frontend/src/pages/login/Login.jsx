@@ -12,6 +12,7 @@ const Login = () => {
     mainTextColor,
     mainTextColorHover,
     mainBgColorHover,
+    inputBgColor
   } = useColor();
   const { loading, login } = useLogin();
   const handleSubmit = async (e) => {
@@ -25,9 +26,9 @@ const Login = () => {
       >
         <h1 className={`text-3xl ${textColor} text-center font-semibold`}>
           Login
-          <span className={`${mainTextColor} ${mainTextColorHover}`}>
-            ChatApp
-          </span>
+          <Link className={`${mainTextColor} ${mainTextColorHover}`} to="/">
+          {" "}  ChatApp
+          </Link>
         </h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -37,7 +38,7 @@ const Login = () => {
             <input
               type="text"
               placeholder="Enter Username "
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${inputBgColor} ${textColor} `}
               value={inputs.username}
               onChange={(e) =>
                 setInputs({ ...inputs, username: e.target.value })
@@ -51,7 +52,7 @@ const Login = () => {
             <input
               type="password"
               placeholder="Enter Password "
-              className={`w-full input input-bordered h-10 ${textColor} `}
+              className={`w-full input input-bordered h-10 ${inputBgColor} ${textColor} `}
               value={inputs.password}
               onChange={(e) =>
                 setInputs({ ...inputs, password: e.target.value })

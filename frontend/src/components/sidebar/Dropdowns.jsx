@@ -3,14 +3,16 @@ import { Menu, Transition } from "@headlessui/react";
 import { LuMoreVertical } from "react-icons/lu";
 import { MdOutlineSettings } from "react-icons/md";
 import LogoutButton from "./LogoutButton";
-import useMode from "../../zustand/useMode";
 import { MdOutlineDarkMode } from "react-icons/md";
 import useColor from "../../hooks/useColor";
 import { Link } from "react-router-dom";
 import { ImSun } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTheme, toggleTheme } from "../../redux/features/themeSlice";
 
 export default function Dropdowns() {
-  const { mode, setMode } = useMode();
+  const mode = useSelector(selectTheme);
+  const dispatch = useDispatch();
   const { textColor, textColorHover, dropdownBgColor, dropdownBgColorHover } =
     useColor();
 
@@ -60,7 +62,7 @@ export default function Dropdowns() {
               <Menu.Item>
                 <div
                   className={`${dropdownBgColor} ${textColor}  ${dropdownBgColorHover} block px-4 py-2 text-sm`}
-                  onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+                  onClick={() => dispatch(toggleTheme())}
                 >
                   <div className="flex items-center cursor-pointer">
                     {mode === "dark" ? (
