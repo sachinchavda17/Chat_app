@@ -1,6 +1,6 @@
-
+import useMode from "../zustand/useMode";
 const useColor = () => {
-  const mode = localStorage.getItem("theme") || "dark";
+  const { mode } = useMode()
 
   const textColor = mode === "dark" ? "text-gray-200" : "text-gray-900";
   const textColorHover =

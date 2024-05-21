@@ -12,12 +12,13 @@ const Home = () => {
 
   return (
     <div
-      className={`flex w-full  sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden shadow-md ${bgColor} bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0`}
+      className={`flex w-full h-full sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden shadow-md ${bgColor} bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0`}
     >
-      {/* <div className="sm:flex w-full hidden"> */}
+      <div className="flex w-full ">
         <Sidebar />
-        <MessageContainer />
-      {/* </div> */}
+        <MessageContainer  />
+
+      </div>
 
        {/* <div className="sm:hidden  w-full  ">
         {!selectedConversation ? <Sidebar /> : <MessageContainer />}

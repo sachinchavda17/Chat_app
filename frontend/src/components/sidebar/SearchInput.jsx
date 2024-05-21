@@ -44,11 +44,11 @@ const SearchInput = () => {
 
   return (
     <>
-      <form className="flex items-center gap-2" onSubmit={handleSearchSubmit}>
+      <form className="flex items-center gap-2 w-full" onSubmit={handleSearchSubmit}>
         <input
           type="text"
           placeholder="Search..."
-          className={`input input-bordered rounded-full h-8 text-sm ${bgColor} ${textColor} ${borderColor}`}
+          className={`input input-bordered w-full rounded-full h-8 text-sm ${bgColor} ${textColor} ${borderColor}`}
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);

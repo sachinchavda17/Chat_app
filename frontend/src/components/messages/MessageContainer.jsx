@@ -8,6 +8,8 @@ import { IoVideocam } from "react-icons/io5";
 import { MdCall } from "react-icons/md";
 import useColor from "../../hooks/useColor";
 import { useSocketContext } from "../../contexts/SocketContext";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -15,7 +17,8 @@ const MessageContainer = () => {
     bgColor,
     bgColorHover,
     textColor,
-    textColorHover,
+    dropdownBgColor,
+    dropdownBgColorHover,
     bgSlateColorForHeader,
     fixedColorForHeader,
   } = useColor();
@@ -27,7 +30,11 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
   return (
-    <div className=" w-full flex flex-col">
+    <div
+      className={`w-full ${
+        selectedConversation ? "flex " : "hidden sm:flex"
+      }  flex-col`}
+    >
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
@@ -36,7 +43,13 @@ const MessageContainer = () => {
             className={`${bgSlateColorForHeader} px-4 py-2 mb-2 flex items-center gap-3 justify-between `}
           >
             <div className="flex items-center gap-3 ">
-            <div className={`avatar ${isOnline ? "online" : ""}`}>
+              <NavLink to="/" className={`sm:hidden text-2xl rounded-full  `}>
+                <IoMdArrowRoundBack
+                  className={`${fixedColorForHeader}`}
+                  onClick={() => setSelectedConversation(null)}
+                />
+              </NavLink>
+              <div className={`avatar ${isOnline ? "online" : ""}`}>
                 <div className="w-12 rounded-full">
                   <img
                     src={selectedConversation.profilePic}

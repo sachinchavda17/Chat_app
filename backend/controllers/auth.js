@@ -37,7 +37,7 @@ export const singupUser = async (req, res) => {
                 fullName: newUser.fullName,
                 username: newUser.username,
                 profilePic: newUser.profilePic,
-
+                gender : newUser.gender,
             })
         } else {
             res.status(400).json({ error: "Invalid user data " })
@@ -67,10 +67,8 @@ export const loginUser = async (req, res) => {
             fullName: user.fullName,
             username: user.username,
             profilePic: user.profilePic,
+            gender : user.gender,
         })
-
-
-
     } catch (error) {
         console.log("Error in login " + error.message);
         res.status(500).json({ error: "Internal Server Error " });

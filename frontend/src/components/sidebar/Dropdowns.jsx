@@ -7,28 +7,40 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import useColor from "../../hooks/useColor";
 import { Link } from "react-router-dom";
 import { ImSun } from "react-icons/im";
-import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, toggleTheme } from "../../redux/features/themeSlice";
+import { useAuthContext } from "../../contexts/AuthContext";
+import useMode from "../../zustand/useMode";
 
 export default function Dropdowns() {
-  const mode = useSelector(selectTheme);
-  const dispatch = useDispatch();
+  const { mode, setMode } = useMode();
   const { textColor, textColorHover, dropdownBgColor, dropdownBgColorHover } =
     useColor();
+  const { authUser } = useAuthContext();
+  const toggleMode = () => {
+    setMode(mode === "light" ? "dark" : "light");
+    localStorage.setItem("CurrentTheme", mode === "light" ? "dark" : "light");
+  };
 
   return (
     <div className="mt-auto">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button
-            className={`rounded-md px-3 py-2 text-sm font-semibold ${textColor} ${textColorHover} shadow-sm ring-1 ring-inset ${
+            className={`${
+              authUser?.profilePic ? "rounded-full p-1" : "rounded-md px-3 py-2"
+            }   text-sm font-semibold ${textColor} ${textColorHover} shadow-sm ring-1 ring-inset ${
               mode === "dark" ? "ring-gray-400" : "ring-gray-700"
             }`}
           >
-            <LuMoreVertical
-              className={`-mr-1 h-5 w-5 ${textColor}`}
-              aria-hidden="true"
-            />
+            {authUser.profilePic ? (
+              <div className="w-10 rounded-full">
+                <img src={authUser?.profilePic} alt={authUser?.profilePic} />
+              </div>
+            ) : (
+              <LuMoreVertical
+                className={`-mr-1 h-5 w-5 ${textColor}`}
+                aria-hidden="true"
+              />
+            )}
           </Menu.Button>
         </div>
 
@@ -62,7 +74,7 @@ export default function Dropdowns() {
               <Menu.Item>
                 <div
                   className={`${dropdownBgColor} ${textColor}  ${dropdownBgColorHover} block px-4 py-2 text-sm`}
-                  onClick={() => dispatch(toggleTheme())}
+                  onClick={() => toggleMode()}
                 >
                   <div className="flex items-center cursor-pointer">
                     {mode === "dark" ? (
