@@ -21,25 +21,25 @@ const Profile = () => {
   const oddColorHover =
     mode === "dark" ? "hover:bg-slate-900" : "hover:bg-slate-200";
   return (
-    <div className="flex h-full w-full justify-around p-20 gap-10">
+    <div className="flex flex-col md:flex-row h-full w-full justify-around p-5 md:p-20 gap-10">
       <NavLink
         to="/"
-        className={`absolute top-6 left-16 text-3xl rounded-full p-2 ${dropdownBgColor} ${dropdownBgColorHover} shadow-md shadow-gray-600`}
+        className={`fixed top-5 left-5 md:top-6 md:left-16 text-2xl md:text-3xl rounded-full p-2 ${dropdownBgColor} ${dropdownBgColorHover} shadow-md shadow-gray-600`}
       >
         <IoMdArrowRoundBack className={`${textColor}`} />
       </NavLink>
       <div
-        className={`w-1/2 p-4 flex flex-col items-center justify-center border border-gray-600 rounded-lg shadow-lg shadow-gray-600 ${bgColor} ${textColor}`}
+        className={`w-full md:w-1/2 p-4 flex flex-col items-center justify-center border border-gray-600 rounded-lg shadow-lg shadow-gray-600 ${bgColor} ${textColor}`}
       >
         <img
           src={authUser.profilePic}
           alt="Profile Image"
-          className="w-48 h-48 rounded-full ring ring-gray-500 p-1 mb-5"
+          className="md:w-48 md:h-48 w-32 h-32 rounded-full ring ring-gray-500 p-1 mb-5"
         />
-        <h2 className="text-2xl font-bold">{authUser.fullName}</h2>
-        <p className="text-lg">@{authUser.username}</p>
+        <h2 className="text-xl md:text-2xl font-bold">{authUser.fullName}</h2>
+        <p className="text-md md:text-lg">@{authUser.username}</p>
       </div>
-      <div className="w-1/2 p-4 flex flex-col items-center justify-center border border-gray-600 rounded-lg shadow-lg shadow-gray-600 ">
+      <div className="w-full  md:w-1/2 text-md lg:text-lg p-4 flex flex-col items-center justify-center border border-gray-600 rounded-lg shadow-lg shadow-gray-600 ">
         <div className="w-full flex justify-center items-center flex-col ">
           <div
             className={`px-5 py-5 mb-1 ${dropdownBgColor} ${dropdownBgColorHover} ${textColor} rounded-md flex justify-between w-full`}
@@ -74,7 +74,7 @@ const Profile = () => {
               onClick={toggleMode}
             >
               {mode === "dark" ? (
-                <ImSun className={`h-6 w-6 ${textColor}  `} />
+                <ImSun className={`md:h-6 md:w-6 w-5 h-5 ${textColor}  `} />
               ) : (
                 <MdOutlineDarkMode className={`h-6 w-6 ${textColor}  `} />
               )}
