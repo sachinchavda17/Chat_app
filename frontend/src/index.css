@@ -9,6 +9,10 @@
 	background-position: center;
 } */
 
+*{
+	transition: 1s;
+}
+
 ::-webkit-scrollbar {
 	cursor: pointer;
 	width: 5px;

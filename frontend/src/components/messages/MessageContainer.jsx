@@ -14,11 +14,6 @@ import { NavLink } from "react-router-dom";
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const {
-    bgColor,
-    bgColorHover,
-    textColor,
-    dropdownBgColor,
-    dropdownBgColorHover,
     bgSlateColorForHeader,
     fixedColorForHeader,
   } = useColor();
@@ -40,7 +35,7 @@ const MessageContainer = () => {
       ) : (
         <>
           <div
-            className={`${bgSlateColorForHeader} px-4 py-2 mb-2 flex items-center gap-3 justify-between `}
+            className={`${bgSlateColorForHeader} relative  px-4 py-2 mb-2 flex items-center gap-3 justify-between `}
           >
             <div className="flex items-center gap-3 ">
               <NavLink to="/" className={`sm:hidden text-2xl rounded-full  `}>

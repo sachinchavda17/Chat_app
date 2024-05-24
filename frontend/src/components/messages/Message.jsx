@@ -17,16 +17,16 @@ const Message = ({ message }) => {
   const formattedTime = extractTime(message.createdAt);
   const shakeClass = message.shouldShake ? "shake" : "";
   return (
-    <div className={`chat ${chatClassName} `}>
-      <div className="chat-image avatar">
+    <div className={`chat ${chatClassName}  `}>
+      <div className="sm:chat-image sm:avatar hidden cursor-pointer">
         <div className="w-10 rounded-full">
           <img src={profilePic} alt="Profile Picture" />
         </div>
       </div>
-      <div className={`chat-bubble ${textColor} ${bgBubbleColor} ${shakeClass} pb-2`}>
+      <div className={`chat-bubble ${textColor} ${bgBubbleColor} ${shakeClass} pb-2 cursor-pointer`}>
         {message?.message}
       </div>
-      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
+      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center cursor-pointer">
         {formattedTime}
       </div>
     </div>

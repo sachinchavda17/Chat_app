@@ -9,7 +9,7 @@ import useConversation from "../../zustand/useConversation";
 
 const Sidebar = () => {
   const { textColor, bgColor, dividerColor } = useColor();
-  const { selectedConversation, setSelectedConversation } = useConversation();
+  const { selectedConversation } = useConversation();
 
   return (
     <div
